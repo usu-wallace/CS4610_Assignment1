@@ -1,0 +1,46 @@
+:root {
+    background-color: teal;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.Submit header {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:white;
+}
+  
+input {
+    border: 1px solid gray;
+    border-radius: 13px;
+    
+    background-color: white;
+    color: black;
+    
+    padding: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+.Random {
+    font-family: cursive;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    text-align: right;
+}
+.Random p {
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.quote {
+    text-align: left;
+}
+  
