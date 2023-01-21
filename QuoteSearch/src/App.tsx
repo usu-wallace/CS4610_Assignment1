@@ -15,20 +15,21 @@ export function App() {
     getSearchResults();
   }
 
-  function getRandom() {
-    fetch("https://usu-quotes-mimic.vercel.app/api/random")
-    .then(r => r.json())
-    .then(quote => setRandQuote(quote));
+  async function getRandom() {
+    const randQuote = await fetch("https://usu-quotes-mimic.vercel.app/api/random")
+    //console.log(await randQuote.json());
+    setRandQuote(await randQuote.json());
   }
 
-  function getSearchResults() {
+  async function getSearchResults() {
     let queryInput = inputQuote.replace(" ", "+");
     let query = "https://usu-quotes-mimic.vercel.app/api/search?query=" + queryInput;
 
+    console.log(query);
     //TODO: doesn't seem to work
-    fetch(query)
-    .then(r => r.json())
-    .then(quotes => setQuotes(quotes));
+    const quotes = await fetch(query)
+    console.log(await quotes.json);
+    //setQuotes(await quotes.json());
   }
 
   return (
