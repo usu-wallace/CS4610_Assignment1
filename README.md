@@ -13,7 +13,7 @@ For this first project you will be building a simple application that uses a quo
 ---
 You are to design and build a mobile-first web application that allows the user to search for quotes said by a given author. Watch the following for a video demonstration of my solution and an explanation:
 
-*insert video here on GitHub*
+https://user-images.githubusercontent.com/112672373/213843066-d16854b2-0873-437f-a860-f40241964dbd.mp4
 
 Do you love how I am terrible at spelling, haha! Note that I have the dev tools open and mobile mode enabled to demonstrate how it looks on a small screen. I will be using this to grade your submission so you should develop your application in this mode.
 
