@@ -9,7 +9,8 @@ export function App() {
     getRandom();
   }, []);
 
-  function submit() {
+  const submit = e => {
+    e.preventDefault();
     console.log("submitted");
     getRandom();
     getSearchResults();
@@ -22,13 +23,12 @@ export function App() {
   }
 
   async function getSearchResults() {
-    let queryInput = inputQuote.replace(" ", "+");
-    let query = "https://usu-quotes-mimic.vercel.app/api/search?query=" + queryInput;
+    let query = "https://usu-quotes-mimic.vercel.app/api/search?query=" + inputQuote;
 
     console.log(query);
     //TODO: doesn't seem to work
     const quotes = await fetch(query)
-    console.log(await quotes.json);
+    console.log(await quotes.json());
     //setQuotes(await quotes.json());
   }
 
