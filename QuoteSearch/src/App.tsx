@@ -4,6 +4,7 @@ export function App() {
   const [inputQuote, setInputQuote] = useState("");
   const [quotes, setQuotes] = useState("");
   const [randQuote, setRandQuote] = useState("");
+  const [submitted, setSubmitted] = useState(Boolean);
 
   useEffect(() => {
     getRandom();
@@ -46,8 +47,13 @@ export function App() {
       </div>
 
       <div className="Results">
-        {Object.keys(quotes.results).map((key, index) => (
-            <div key={index}>
+        {/* 
+          Code below only works AFTER being submitted, but it breaks site from being able to be submitted
+          Object.keys - turns an object into an array
+          map() - runs a function over each part of an array
+        */}
+        {Object.keys(quotes.results).map((key) => (
+            <div>
               <p className='quote'>{(quotes.results[key]['content'])}</p>
               <p>- {(quotes.results[key]['author'])}</p>
             </div>
