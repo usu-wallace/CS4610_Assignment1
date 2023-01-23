@@ -3,22 +3,23 @@ import { useEffect, useState } from 'react'
 export function App() {
   const [inputQuote, setInputQuote] = useState("");
   const [quotes, setQuotes] = useState([]);
-  const [randQuote, setRandQuote] = useState("");
+  const [randQuote, setRandQuote] = useState(Object);
 
   useEffect(() => {
     getRandom();
   }, []);
 
-  const submit = e => {
+  const submit = (e: any) => {
     e.preventDefault();
+
     console.log("submitted");
     getRandom();
     getSearchResults();
+    console.log(randQuote);
   }
 
   async function getRandom() {
     const randQuote = await fetch("https://usu-quotes-mimic.vercel.app/api/random")
-    //console.log(await randQuote.json());
     setRandQuote(await randQuote.json());
   }
 
@@ -29,10 +30,6 @@ export function App() {
     fetch(query)
     .then(r => r.json())
     .then(quote => setQuotes(quote['results']));
-
-    // const quotes = await fetch(query)
-    // //console.log(await quotes.json());
-    // setQuotes(await quotes.json());
   }
 
   return (
@@ -50,12 +47,7 @@ export function App() {
       </div>
 
       <div className="Results">
-        {/* 
-          Code below only works AFTER being submitted, but it breaks site from being able to be submitted
-          Object.keys - turns an object into an array
-          map() - runs a function over each part of an array
-        */}
-        {Object.keys(quotes).map((key) => (
+        {Object.keys(quotes).map((key: any) => (
             <div>
               <p className='quote'>{(quotes[key]['content'])}</p>
               <p>- {(quotes[key]['author'])}</p>
