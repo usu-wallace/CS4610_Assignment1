@@ -40,6 +40,22 @@ input {
     margin-left: 10%;
     margin-right: 10%;
 }
+
+.Results {
+    font-family: cursive;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    text-align: right;
+}
+.Results p {
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
 .quote {
     text-align: left;
 }
