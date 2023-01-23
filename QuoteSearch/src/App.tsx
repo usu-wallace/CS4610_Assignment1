@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 
 export function App() {
   const [inputQuote, setInputQuote] = useState("");
-  const [quotes, setQuotes] = useState("");
+  const [quotes, setQuotes] = useState([]);
   const [randQuote, setRandQuote] = useState("");
-  const [submitted, setSubmitted] = useState(Boolean);
 
   useEffect(() => {
     getRandom();
@@ -27,9 +26,13 @@ export function App() {
     let query = "https://usu-quotes-mimic.vercel.app/api/search?query=" + inputQuote;
 
     console.log(query);
-    const quotes = await fetch(query)
-    //console.log(await quotes.json());
-    setQuotes(await quotes.json());
+    fetch(query)
+    .then(r => r.json())
+    .then(quote => setQuotes(quote['results']));
+
+    // const quotes = await fetch(query)
+    // //console.log(await quotes.json());
+    // setQuotes(await quotes.json());
   }
 
   return (
@@ -52,10 +55,10 @@ export function App() {
           Object.keys - turns an object into an array
           map() - runs a function over each part of an array
         */}
-        {Object.keys(quotes.results).map((key) => (
+        {Object.keys(quotes).map((key) => (
             <div>
-              <p className='quote'>{(quotes.results[key]['content'])}</p>
-              <p>- {(quotes.results[key]['author'])}</p>
+              <p className='quote'>{(quotes[key]['content'])}</p>
+              <p>- {(quotes[key]['author'])}</p>
             </div>
         ))}
       </div>
